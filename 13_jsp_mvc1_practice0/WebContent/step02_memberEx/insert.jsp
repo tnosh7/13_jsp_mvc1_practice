@@ -36,35 +36,6 @@ function execDaumPostcode() {
 </script>
 <script>
 
-	var isVaildPassword = false;
-	
-	function sendData(){
-		
-		var birthY = document.getElementById("birthY").value;
-		var birthM = document.getElementById("birthM").value;
-		var birthD = document.getElementById("birthD").value;
-		document.getElementById("birthDt").value = birthY + "_" + birthM + "_" + birthD;
-		
-		if (!isVaildPassword) {
-			alert("패스워스 불일치");
-			document.getElemenetById("passwd").focus();
-			retrun false;
-		}
-	}
-	
-	function checkPassword(){
-			
-		var passwd = document.getElementById("passwd").value;
-		var confirmPasswd = document.getElementById("confirmPassWd").value;
-		
-		if (passwd == confirmPasswd) {
-			document.getElementById("passwdConfirmMsg").innerHTML = "<span style='color:green;'>일치합니다</span>";
-			isVaildPassword=true;
-		}
-		else {
-			document.getElementById("passWdConfirmMsg").innerHTML = "<span style='color:red;'>패스워드를 확인해주세요</span>";
-		}
-	}
 
 
 </script>
@@ -72,7 +43,7 @@ function execDaumPostcode() {
 <body>
 
 	<div align="center">
-		<form action="insertPro.jsp" method="post" onsubmit="return sendData();">
+		<form action="insertPro.jsp" method="post" onsubmit="">
 			<h3>회원 가입</h3>
 			<table border="1">
 				<tr>
@@ -83,11 +54,11 @@ function execDaumPostcode() {
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" id="passwd" name="passwd" placeholder="비밀번호를 입력하세요." required onblur="checkPassword();"></td>
+					<td><input type="password" id="passwd" name="passwd" placeholder="비밀번호를 입력하세요." required onblur=""></td>
 				</tr>
 				<tr>
 					<td>비밀번호 확인</td>
-					<td><input type="password" id="confirmPasswd" placeholder="비밀번호를 확인하세요." onblur="checkPassword();"><span id="passwdConfirmMsg"></span></td>
+					<td><input type="password" id="confirmPasswd" placeholder="비밀번호를 확인하세요." onblur=""><span id="passwdConfirmMsg"></span></td>
 				</tr>
 				<tr>
 					<td>이름</td>
@@ -104,45 +75,13 @@ function execDaumPostcode() {
 					<td>생년월일</td>
 					<td>
 						 <select id="birthY">
-						 	<%
-						 		for (int i = 2023; i >= 1920; i--) {
-						 	%>
-						 			<option><%=i %></option>
-						 	<% 
-						 		}
-						 	%>
+						 	
 				        </select>년 
 			          	<select id="birthM">
-				          	<%
-						 		for (int i = 1; i <= 12; i++) {
-						 			if (i < 10) {
-						 	%>
-							 			<option>0<%=i %></option>
-						 	<% 
-						 			}
-						 			else {
-							%>
-										<option><%=i %></option>	
-							<% 						 	
-						 			}
-						 		}
-						 	%>
+				          	
 				         </select>월
 				         <select id="birthD">
-				          	<%
-						 		for (int i = 1; i <= 31; i++) {
-						 			if (i < 10) {
-						 	%>
-							 			<option>0<%=i %></option>
-						 	<% 
-						 			}
-						 			else {
-							%>
-										<option><%=i %></option>	
-							<% 						 	
-						 			}
-						 		}
-						 	%>
+				   
 				         </select>일
 				         <input type="hidden" id="birthDt" name="birthDt"/>
 					</td>
@@ -165,7 +104,7 @@ function execDaumPostcode() {
 					<td>주소</td>
 					<td>
 						우편번호 : <input type="text" id="zipcode" name="zipcode" required>
-						<input type="button" value="검색" onclick="execDaumPostcode();"> <br><br>
+						<input type="button" value="검색" onclick=""> <br><br>
 						도로명 주소 : <input type="text" id="roadAddress" name="roadAddress" placeholder="도로명주소를 입력하세요."><br>
 						지번 주소 : <input type="text" id="jibunAddress" name="jibunAddress" placeholder="지번주소를 입력하세요."><br>
 						나머지 주소 : <input type="text" id="namujiAddress" name="namujiAddress" placeholder="나머지주소를 입력하세요.">

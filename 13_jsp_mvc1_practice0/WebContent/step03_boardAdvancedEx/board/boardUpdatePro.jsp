@@ -3,12 +3,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>logout</title>
+<title>boardUpdatePro</title>
 </head>
 <body>
 
-	<% 
+		<%
+	
 	%>
+	
+	<script>
+	</script>
 	
 </body>
 </html>

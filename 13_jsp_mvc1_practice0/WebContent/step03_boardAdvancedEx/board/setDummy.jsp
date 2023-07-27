@@ -3,12 +3,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>logout</title>
+<title>setDummy</title>
 </head>
 <body>
 
-	<% 
+	<%
 	%>
+	
+	<script>
+	</script>
 	
 </body>
 </html>

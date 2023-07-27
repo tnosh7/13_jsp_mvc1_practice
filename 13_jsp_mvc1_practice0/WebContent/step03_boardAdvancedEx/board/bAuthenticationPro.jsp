@@ -3,12 +3,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>logout</title>
+<title>Insert title here</title>
 </head>
 <body>
 
-	<% 
-	%>
-	
+	<%
+	%>	
 </body>
 </html>

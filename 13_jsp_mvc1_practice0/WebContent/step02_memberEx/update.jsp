@@ -39,15 +39,6 @@
 <script>
 
 
-	function sendData() {
-		
-		var birthY = document.getElementById("birthY").value;
-		var birthM = document.getElementById("birthM").value;
-		var birthD = document.getElementById("birthD").value;
-		
-		document.getElementById("birthDt").value = birthY + "-" + birthM + "-" + birthD;
-		
-	}
 
 
 </script>
@@ -55,13 +46,6 @@
 <body>
 	
 	<% 
-		String memberId = (String)session.getAttribute("memberId");
-		MemberDTO memberDTO = MemberDAO.getInstance().getMemberDetail(memberId);
-		
-		String birthY = memberDTO.getBirthDt().substring(0, 4);
-		String birthM = memberDTO.getBirthDt().substring(5, 7);
-		String birthD = memberDTO.getBirthDt().substring(8);
-		
 	%>
 	
 	<div align="center">
@@ -71,36 +55,26 @@
 				<tr>
 					<td>아이디</td>
 					<td>
-						<input type="text" id="memberId" name="memberId" value="<%=memberDTO.getMemberId()%>" readonly>
+						<input type="text" id="memberId" name="memberId" value="" readonly>
 					</td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" name="passwd" value="<%=memberDTO.getMemberId()%>" ></td>
+					<td><input type="password" name="passwd" value=""></td>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="memberNm" value="<%=memberDTO.getMemberNm()%>"></td>
+					<td><input type="text" name="memberNm" value=""></td>
 				</tr>
 				<tr>
 					<td>성별</td>
 					<td>
 						남자 &nbsp;<input type="radio" name="sex" value="m" 
 							<%
-								if(memberDTO.getSex().equals("m")) {
-							%>
-									checked
-							<% 
-								}
 							%>
 						> &emsp;
 						여자 &nbsp;<input type="radio" name="sex" value="f"
 							<%
-								if(memberDTO.getSex().equals("f")) {
-							%>
-									checked
-							<% 
-								}
 							%>
 						
 						>
@@ -111,54 +85,16 @@
 					<td>
 						 <select id="birthY">
 						 	<%
-						 		for (int i = 2023; i >= 1920; i--) {
-						 	%>
-						 			<option 
-						 				<%
-						 					if (Integer.parseInt(birthY) == i) {
-						 				%>
-						 						selected
-						 				<% 		
-						 					} 
-						 				%>
-						 			><%=i %></option>
-						 	<% 
-						 		}
+						 
 						 	%>
 				        </select>년 
 			          	<select id="birthM">
 				          		<%
-					          		String month = "1";
-							 		for (int i = 1; i <= 12; i++) {
-							 			
-							 			if (i < 10) {
-							 				month = "0"+ i;
-							 			}
-							 			else {
-							 				month = i + "";
-							 			}
 						 			
-						 	%>
-									<option <%if (birthM.equals(month)) {%>    selected    <% } %> ><%=month %></option>
-						 	<% 
-								}	
 						 	%>
 				         </select>월
 				         <select id="birthD">
 				          	<%	
-				          		String day = "1";
-						 		for (int i = 1; i <= 31; i++) {
-						 			if (i < 10) {
-						 				day = "0"+ i;
-						 			}
-						 			else {
-						 				day = i + "";
-						 			}
-						 			
-						 	%>
-									<option <%if (birthD.equals(day)) {%>    selected    <% } %> ><%=day %></option>
-						 	<% 
-								}	
 						 	%>
 				         </select>일
 				         <input type="hidden" id="birthDt" name="birthDt"/>
@@ -167,14 +103,8 @@
 				<tr>
 					<td>연락처</td>
 					<td>
-						<input type="text" name="hp" value="<%=memberDTO.getHp() %>"><br>
+						<input type="text" name="hp" value=""><br>
 						SMS 소식을 수신합니다. <input type="checkbox" name="smsRecvAgreeYn" value="Y"
-							<%
-								if(memberDTO.getSmsRecvAgreeYn().equals("Y")) {
-							%>
-									checked
-							<% 
-								}
 							%>
 						>
 					</td>
@@ -182,14 +112,9 @@
 				<tr>
 					<td>이메일</td>
 					<td>
-						<input type="text" name="email" value="<%=memberDTO.getEmail() %>"><br>
+						<input type="text" name="email" value="%>"><br>
 						E-mail을 수신합니다.  <input type="checkbox" name="emailRecvAgreeYn" value="Y"
 							<%
-								if(memberDTO.getEmailRecvAgreeYn().equals("Y")) {
-							%>
-									checked
-							<% 
-								}
 							%>
 						
 						>
@@ -198,11 +123,11 @@
 				<tr>
 					<td>주소</td>
 					<td>
-						우편번호 : <input type="text" id="zipcode" name="zipcode" value="<%=memberDTO.getZipcode() %>">
-						<input type="button" value="검색" onclick="execDaumPostcode();"> <br><br>
-						도로명 주소 : <input type="text" id="roadAddress" name="roadAddress" value="<%=memberDTO.getRoadAddress() %>"><br>
-						지번 주소 : <input type="text" id="jibunAddress" name="jibunAddress" value="<%=memberDTO.getJibunAddress() %>"><br>
-						나머지 주소 : <input type="text" id="namujiAddress" name="namujiAddress" value="<%=memberDTO.getNamujiAddress() %>">
+						우편번호 : <input type="text" id="zipcode" name="zipcode" value="">
+						<input type="button" value="검색" onclick=""> <br><br>
+						도로명 주소 : <input type="text" id="roadAddress" name="roadAddress" value=""><br>
+						지번 주소 : <input type="text" id="jibunAddress" name="jibunAddress" value=""><br>
+						나머지 주소 : <input type="text" id="namujiAddress" name="namujiAddress" value="">
 					</td>
 				</tr>
 				<tr>

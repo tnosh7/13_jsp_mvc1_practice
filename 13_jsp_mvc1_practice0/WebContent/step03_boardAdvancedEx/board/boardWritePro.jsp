@@ -3,12 +3,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>logout</title>
+<title>boardWritePro</title>
 </head>
 <body>
-
-	<% 
-	%>
+	
+	<%
+		%>
+	
+	<%
+		%>
+	
+	<script>
+	</script>
 	
 </body>
 </html>

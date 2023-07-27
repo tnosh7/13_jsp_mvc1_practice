@@ -10,31 +10,6 @@
 <body>
 
 	<% 
-		
-		request.setCharacterEncoding("utf-8");
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setMemberId(request.getParameter("memberId"));
-		memberDTO.setPasswd(request.getParameter("passwd"));
-		
-		if (MemberDAO.getInstance().loginMember(memberDTO)) {
-			
-			session.setAttribute("memberId", request.getParameter("memberId"));
-			
-	%>
-			<script>
-				alert("로그인 되었습니다.");
-				location.href = "detail.jsp";
-			</script>
-	<% 		
-		}
-		else {
-	%>
-			<script>
-				alert("아이디와 비밀번호를 확인하세요.");
-				history.go(-1);
-			</script>
-	<% 		
-		}
 	%>
 
 </body>

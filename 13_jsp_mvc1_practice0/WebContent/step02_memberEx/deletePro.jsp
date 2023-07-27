@@ -11,7 +11,6 @@
 <body>
 	
 	<%
-		MemberDAO.getInstance().deleteMember(request.getParameter("memberId"));
 	%>
 	
 	<script>

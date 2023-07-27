@@ -3,12 +3,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>logout</title>
+<title>replyWritePro</title>
 </head>
 <body>
 
-	<% 
-	%>
+	<%
 	
+		
+	%>
+
+	<script>
+	</script>
+
 </body>
 </html>
